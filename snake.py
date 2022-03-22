@@ -17,11 +17,7 @@ class Snake:
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            snake = Turtle(shape="square")
-            snake.color("white")
-            snake.penup()
-            snake.goto(position)
-            self.snake_parts.append(snake)
+            self.add_part(position=position)
 
     def move(self):
         for part in range(len(self.snake_parts) - 1, 0, -1):
@@ -46,12 +42,16 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
-    def extend(self):
+    def add_part(self, position):
         snake = Turtle("square")
         snake.color("white")
         snake.penup()
-        snake_tail_index = len(self.snake_parts) - 1
-        position_x = self.snake_parts[snake_tail_index].xcor()
-        position_y = self.snake_parts[snake_tail_index].ycor()
-        snake.goto(position_x, position_y)
+        snake.goto(position)
         self.snake_parts.append(snake)
+
+    def extend(self):
+        # snake_tail_index = len(self.snake_parts) - 1
+        # position_x = self.snake_parts[snake_tail_index].xcor()
+        # position_y = self.snake_parts[snake_tail_index].ycor()
+        # we can easily change code above with following code
+        self.add_part(self.snake_parts[-1].position())
