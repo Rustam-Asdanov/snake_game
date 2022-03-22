@@ -14,6 +14,9 @@ class Food(Turtle):
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.speed("fastest")
         self.color("orange")
+        self.refresh()
+
+    def refresh(self):
         random_x = random.randint(-1 * SCREEN_WIDTH + 20, SCREEN_WIDTH - 20)
         random_y = random.randint(-1 * SCREEN_HEIGHT + 20, SCREEN_HEIGHT - 20)
         self.goto(random_x, random_y)

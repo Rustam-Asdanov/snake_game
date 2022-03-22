@@ -21,7 +21,6 @@ class Snake:
             snake.color("white")
             snake.penup()
             snake.goto(position)
-            snake.speed("slow")
             self.snake_parts.append(snake)
 
     def move(self):
