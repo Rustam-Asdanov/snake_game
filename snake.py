@@ -45,3 +45,13 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def extend(self):
+        snake = Turtle("square")
+        snake.color("white")
+        snake.penup()
+        snake_tail_index = len(self.snake_parts) - 1
+        position_x = self.snake_parts[snake_tail_index].xcor()
+        position_y = self.snake_parts[snake_tail_index].ycor()
+        snake.goto(position_x, position_y)
+        self.snake_parts.append(snake)

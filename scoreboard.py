@@ -9,10 +9,18 @@ class Scoreboard(Turtle):
         self.color("white")
         self.hideturtle()
         self.penup()
-        self.setposition(0,270)
-        self.write(arg=f"Score: {self.score}", align="center", font=("Arial", 14, "normal"))
+        self.setposition(0, 270)
+        self.update_scoreboard(f"Score: {self.score}")
+
+    def game_over(self):
+        self.goto(0, 0)
+        self.color("red")
+        self.update_scoreboard("GAME OVER!")
+
+    def update_scoreboard(self, text):
+        self.write(arg=text, align="center", font=("Arial", 20, "normal"))
 
     def add_score(self):
         self.score += 1
         self.clear()
-        self.write(arg=f"Score: {self.score}", align="center", font=("Arial", 14, "normal"))
+        self.update_scoreboard(f"Score: {self.score}")
