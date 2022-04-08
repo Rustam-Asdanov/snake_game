@@ -55,3 +55,10 @@ class Snake:
         # position_y = self.snake_parts[snake_tail_index].ycor()
         # we can easily change code above with following code
         self.add_part(self.snake_parts[-1].position())
+
+    def reset(self):
+        for seg in self.snake_parts:
+            seg.goto(1000,1000)
+        self.snake_parts.clear()
+        self.create_snake()
+        self.head = self.snake_parts[0]
